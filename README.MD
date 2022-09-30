@@ -1,7 +1,7 @@
-board 프로젝트
+# board 프로젝트
 코드로 배우는 스프링 웹프로젝트 책의 코드 따라 치기 : 게시판
 
-DB테이블 생성
+## DB테이블 생성
 CREATE SEQUENCE seq_board;
 
 CREATE TABLE tbl_board(
@@ -15,7 +15,7 @@ bno number(10,0)
 
 ALTER TABLE tbl_board ADD CONSTRAINT pk_board PRIMARY KEY(bno);
 
-목표
+## 목표
 스프링 부트를 이용한 CURD 게시판 작성
 게시판의 페이징 처리
 검색기능 처리
