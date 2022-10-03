@@ -16,15 +16,14 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class BoardMapperTests {
 
+	
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper mapper;
-	
 	
 //	@Test
 	public void testGetList(){
 		mapper.getList().forEach(board -> log.info(board));
 	}
-	
 	
 //	@Test
 	public void testInsertSelectKey(){
@@ -67,4 +66,5 @@ public class BoardMapperTests {
 		log.info("UPDATE COUNT: " + count);
 		
 	}
+	
 }
