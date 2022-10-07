@@ -9,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.board.domain.BoardVO;
+import com.board.domain.Criteria;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -41,9 +42,10 @@ public class BoardServiceTests {
 		log.info("생성게시물 번호" + board.getBno());
 	}
 
-//	@Test
+	@Test
 	public void testGetList(){
-		service.getList().forEach(board -> log.info(board));
+//		service.getList().forEach(board -> log.info(board));
+		service.getList(new Criteria(2,10)).forEach(board -> log.info(board));
 	}
 
 //	@Test
@@ -51,7 +53,7 @@ public class BoardServiceTests {
 		log.info(service.get(1L));
 	}
 	
-	@Test
+//	@Test
 	public void testUpdate(){
 		
 		BoardVO board = service.get(1L);
@@ -64,7 +66,7 @@ public class BoardServiceTests {
 		log.info("modify:" + service.modify(board));
 	}
 	
-	@Test
+//	@Test
 	public void testDelete(){
 		log.info("remove:" + service.remove(2L));
 	}
