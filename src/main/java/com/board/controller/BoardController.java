@@ -72,11 +72,16 @@ public class BoardController {
 		if(service.modify(board)){
 			rttr.addFlashAttribute("result" , "success");
 		}
+
+		//Criteria 클래스에서 UriComponentsBuilder를 사용하면 일일이 파라미터 값을 유지할 필요가 없다.
+		/*
+			rttr.addAttribute("pageNum", cri.getPageNum());
+			rttr.addAttribute("amount", cri.getAmount());
+			rttr.addAttribute("type", cri.getType());
+			rttr.addAttribute("keyword", cri.getKeyword());
+		*/
 		
-		rttr.addAttribute("pageNum", cri.getPageNum());
-		rttr.addAttribute("amount", cri.getAmount());
-		
-		return "redirect:/board/list";
+		return "redirect:/board/list" + cri.getListLink();
 	}
 	
 	@PostMapping("/remove")
@@ -88,10 +93,14 @@ public class BoardController {
 			rttr.addFlashAttribute("result","success");
 		}
 		
-		rttr.addAttribute("pageNum", cri.getPageNum());
-		rttr.addAttribute("amount", cri.getAmount());
-		
-		return "redirect:/board/list";
+		//Criteria 클래스에서 UriComponentsBuilder를 사용하면 일일이 파라미터 값을 유지할 필요가 없다.
+		/*
+			rttr.addAttribute("pageNum", cri.getPageNum());
+			rttr.addAttribute("amount", cri.getAmount());
+			rttr.addAttribute("type", cri.getType());
+			rttr.addAttribute("keyword", cri.getKeyword());
+		*/		
+		return "redirect:/board/list" + cri.getListLink();
 	}
 	
 	

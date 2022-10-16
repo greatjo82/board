@@ -13,7 +13,8 @@
 	    var formObj = $("form");
 	
 	    $('button').on("click", function(e){
-	        e.preventDefault();
+	       
+	    	e.preventDefault();
 	
 	        var operation = $(this).data("oper");
 	        
@@ -26,13 +27,18 @@
 	            
 	            var pageNumTag = $("input[name='pageNum']").clone();
 	            var amountTag = $("input[name='amount']").clone();
+	            var typeTag = $("input[name='type']").clone();
+	            var keywordTag = $("input[name='keyword']").clone();
 	            
 	            formObj.empty();
 	            
 	            formObj.append(pageNumTag);
 	            formObj.append(amountTag);
+	            formObj.append(typeTag);
+	            formObj.append(keywordTag);
 	            
 	        }
+	        
 	        formObj.submit();
 	
 	    });
@@ -56,7 +62,7 @@
             </div>
               <!-- /.panel-heading -->	
 			<div class="panel-body">
-				<form action="/board/modify" method="post" >
+				<form role="form" action="/board/modify" method="post" >
 					<div class="from-group">
 							<label>Bno</label><input class="form-control" name="bno" value='<c:out value="${board.bno}"/>' readonly="readonly">
 					</div>
@@ -83,6 +89,8 @@
 					<input type="hidden" id='bno' name='bno' value='<c:out value="${board.bno}"/>'>
 					<input type="hidden" name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
 					<input type="hidden" name='amount' value='<c:out value="${cri.amount}"/>'>
+					<input type="hidden" name='type' value='<c:out value="${cri.type}"/>'>
+					<input type="hidden" name='keyword' value='<c:out value="${cri.keyword}"/>'>
 			
 				</form>
 			</div>
